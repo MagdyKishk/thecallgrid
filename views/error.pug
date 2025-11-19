@@ -1,0 +1,22 @@
+//- Error Page
+//- 404 and 500 error pages
+
+extends layout
+
+block content
+  section.error-page.section
+    .container
+      .error-content
+        .error-code= statusCode || 404
+        h1.error-title= title || 'Page Not Found'
+        p.error-message= message || 'The page you are looking for does not exist.'
+        
+        .error-actions
+          a.btn.btn-primary(href="/") Go Home
+          a.btn.btn-outline(href="javascript:history.back()") Go Back
+        
+        if nodeEnv === 'development' && error
+          .error-stack
+            h3 Stack Trace (Development Only)
+            pre= error.stack
+

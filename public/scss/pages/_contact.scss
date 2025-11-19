@@ -1,0 +1,234 @@
+// ==========================================================================
+// CONTACT PAGE
+// ==========================================================================
+
+// Contact Hero
+.contact-hero.section {
+  padding: 5rem 0 3rem;
+  background: $gradient-primary;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  @include pattern-bg;
+  
+  @include mobile {
+    padding: 3rem 0 2rem;
+  }
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-hero .section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  margin-bottom: $spacing-sm;
+}
+
+.contact-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: $spacing-md;
+  line-height: 1.2;
+  
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+.contact-hero-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+// Contact Section
+.contact.section {
+  padding: 4rem 0;
+  background: linear-gradient(180deg, rgba(102, 126, 234, 0.03) 0%, rgba(255, 255, 255, 1) 100%);
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+// Contact Form
+.contact-form-wrapper {
+  background: white;
+  padding: 2.5rem;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  border: 2px solid transparent;
+  transition: all $transition-base;
+  
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+  }
+  
+  @include mobile {
+    padding: 1.5rem;
+  }
+}
+
+.form-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: $color-text-muted;
+  margin-bottom: 2rem;
+}
+
+.contact-form .btn-block {
+  width: 100%;
+  justify-content: center;
+  background: $gradient-primary;
+  padding: 1rem 2rem;
+  font-size: 1.0625rem;
+  
+  &:hover {
+    background: linear-gradient(135deg, #5a3b8f 0%, $color-primary 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+  }
+}
+
+// Contact Info Card
+.contact-info-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  border: 2px solid transparent;
+  transition: all $transition-base;
+  
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+  }
+  
+  @include mobile {
+    padding: 1.5rem;
+  }
+}
+
+.info-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.info-icon-lg {
+  @include gradient-icon(70px);
+  margin: 0 auto 1rem;
+  
+  i {
+    font-size: 1.75rem;
+  }
+}
+
+.info-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.5rem;
+}
+
+.info-subtitle {
+  color: $color-text-muted;
+  font-size: 0.9375rem;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.info-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: $radius-md;
+  @include flex-center;
+  color: $color-primary;
+  font-size: 1.125rem;
+  
+  i {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+}
+
+.info-content {
+  flex: 1;
+  
+  strong {
+    display: block;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: 0.25rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.info-link {
+  color: $color-primary;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color $transition-fast;
+  
+  &:hover {
+    color: $color-secondary;
+    text-decoration: underline;
+  }
+}
+
+.info-text {
+  color: $color-text-muted;
+  font-size: 0.9375rem;
+  margin: 0.25rem 0 0 0;
+  line-height: 1.5;
+}
+

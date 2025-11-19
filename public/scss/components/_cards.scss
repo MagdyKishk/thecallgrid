@@ -1,0 +1,105 @@
+// ==========================================================================
+// CARDS
+// ==========================================================================
+
+.feature-card {
+  background: rgba(255, 255, 255, 1);
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  position: relative;
+  @include card-hover;
+}
+
+.card-header {
+  margin-bottom: $spacing-lg;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  color: $color-text;
+  
+  i {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+}
+
+.card-number {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 6rem;
+  font-weight: 500;
+  color: $color-primary;
+  opacity: 0.1;
+  line-height: 1;
+  z-index: 1;
+  
+  @include mobile {
+    font-size: 3rem;
+    top: $spacing-xs;
+    right: $spacing-xs;
+    opacity: 0.2;
+  }
+}
+
+.card-features {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Features Grid
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-xl;
+  
+  @include mobile {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+  }
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.feature-icon {
+  font-size: 1.25rem;
+  color: $color-text;
+  flex-shrink: 0;
+  
+  i {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
+}
+
+.feature-text {
+  color: $color-text;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+

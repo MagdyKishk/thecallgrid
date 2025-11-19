@@ -1,0 +1,21 @@
+<svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Grid Icon -->
+  <rect x="5" y="10" width="8" height="8" fill="#667eea" rx="1"/>
+  <rect x="5" y="21" width="8" height="8" fill="#667eea" rx="1"/>
+  <rect x="5" y="32" width="8" height="8" fill="#667eea" rx="1"/>
+  <rect x="16" y="10" width="8" height="8" fill="#667eea" rx="1"/>
+  <rect x="16" y="21" width="8" height="8" fill="#667eea" rx="1"/>
+  <rect x="16" y="32" width="8" height="8" fill="#667eea" rx="1"/>
+  <rect x="27" y="10" width="8" height="8" fill="#764ba2" rx="1"/>
+  <rect x="27" y="21" width="8" height="8" fill="#764ba2" rx="1"/>
+  <rect x="27" y="32" width="8" height="8" fill="#764ba2" rx="1"/>
+  
+  <!-- Text -->
+  <text x="42" y="24" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#f8fafc">
+    TheCallGrid
+  </text>
+  <text x="42" y="38" font-family="Arial, sans-serif" font-size="9" fill="#718096">
+    Professional Lead Generation
+  </text>
+</svg>
+

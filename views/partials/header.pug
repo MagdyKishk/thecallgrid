@@ -1,0 +1,40 @@
+//- Site Header
+//- Responsive navigation with logo, menu, and CTA button
+
+header.site-header(role="banner")
+  .container
+    .header-inner
+      //- Logo (not lazy-loaded for SEO and branding)
+      .logo
+        a(href="/" aria-label="TheCallGrid Home")
+          img(src="/assets/logo.svg" alt="TheCallGrid Logo" width="200" height="50")
+      
+      //- Mobile menu toggle
+      button.mobile-menu-toggle(
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      )
+        span.hamburger-icon
+          span
+          span
+          span
+      
+      //- Main Navigation
+      nav#main-nav.main-nav(role="navigation" aria-label="Main Navigation")
+        ul.nav-list
+          li.nav-item
+            a.nav-link(href="/" class=(pageClass === 'page-home' ? 'active' : '')) Home
+          li.nav-item
+            a.nav-link(href="/services" class=(pageClass === 'page-services' ? 'active' : '')) Services
+          li.nav-item
+            a.nav-link(href="/about" class=(pageClass === 'page-about' ? 'active' : '')) About
+          li.nav-item
+            a.nav-link(href="/contact" class=(pageClass === 'page-contact' ? 'active' : '')) Contact
+          li.nav-item.nav-cta
+            a.btn.btn-primary(href="/contact" aria-label="Book a call") 
+              i.fas.fa-phone-alt
+              span.text Book A Call Now
+              i.fas.fa-arrow-right
+

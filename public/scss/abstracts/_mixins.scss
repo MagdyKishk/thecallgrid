@@ -1,0 +1,77 @@
+// ==========================================================================
+// MIXINS
+// ==========================================================================
+
+// Flexbox center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Gradient text
+@mixin gradient-text($gradient: $gradient-primary) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Pattern background
+@mixin pattern-bg($opacity: 0.4) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $pattern-svg;
+    opacity: $opacity;
+    pointer-events: none;
+  }
+}
+
+// Responsive breakpoints
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+// Card hover effect
+@mixin card-hover {
+  transition: all $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-xl;
+  }
+}
+
+// Gradient icon
+@mixin gradient-icon($size: 70px) {
+  width: $size;
+  height: $size;
+  background: $gradient-primary;
+  border-radius: $radius-full;
+  @include flex-center;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  
+  i {
+    color: white;
+  }
+}
+

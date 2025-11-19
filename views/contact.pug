@@ -1,0 +1,220 @@
+//- Contact Page
+//- Contact form, Google Maps, and business information
+
+extends layout
+
+block content
+  //- Hero Header
+  section.contact-hero.section(data-observe)
+    .container
+      .contact-hero-content
+        .section-subtitle Get In Touch
+        h1.contact-hero-title Let's Transform Your Lead Generation
+        p.contact-hero-description 
+          | Connect with our team of C1+ professionals and discover how we can help you scale your business in 24-48 hours.
+  
+  //- Contact Section
+  section.contact.section(data-observe)
+    .container
+      .contact-grid
+        //- Contact Form
+        .contact-form-wrapper
+          h2.form-title Send Us a Message
+          p.form-subtitle Fill out the form below and we'll get back to you within 24 hours.
+          
+          form.contact-form#contact-form
+            .form-row
+              .form-group
+                label.form-label(for="name") Full Name *
+                input.form-input(
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  minlength="2"
+                  maxlength="100"
+                  placeholder="John Doe"
+                  aria-required="true"
+                )
+              
+              .form-group
+                label.form-label(for="email") Email Address *
+                input.form-input(
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="john@example.com"
+                  aria-required="true"
+                )
+            
+            .form-row
+              .form-group
+                label.form-label(for="phone") Phone Number
+                input.form-input(
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+1 (555) 123-4567"
+                )
+              
+              .form-group
+                label.form-label(for="company") Company Name
+                input.form-input(
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Your Company"
+                )
+            
+            .form-group
+              label.form-label(for="industry") Industry *
+              select.form-select(
+                id="industry"
+                name="industry"
+                required
+                aria-required="true"
+              )
+                option(value="" disabled selected) Select your industry
+                option(value="Real Estate") Real Estate Wholesaling
+                option(value="Solar") Solar Energy
+                option(value="Roofing") Roofing Services
+                option(value="Home Renovation") Home Renovation
+                option(value="Other") Other
+            
+            .form-group
+              label.form-label(for="subject") Subject
+              input.form-input(
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="How can we help?"
+                maxlength="200"
+              )
+            
+            .form-group
+              label.form-label(for="message") Message *
+              textarea.form-textarea(
+                id="message"
+                name="message"
+                required
+                rows="5"
+                minlength="10"
+                maxlength="5000"
+                placeholder="Tell us about your lead generation needs..."
+                aria-required="true"
+              )
+            
+            //- TODO: Add reCAPTCHA v3 in production
+            //- .form-group
+            //-   .g-recaptcha(data-sitekey=process.env.RECAPTCHA_SITE_KEY)
+            
+            .form-group
+              button.btn.btn-primary.btn-lg.btn-block(type="submit")
+                i.fas.fa-paper-plane
+                span.btn-text Send Message
+                i.fas.fa-arrow-right
+                span.btn-loading.hidden
+                  i.fas.fa-spinner.fa-spin
+                  span Sending...
+            
+            .form-message#form-message.hidden(role="alert" aria-live="polite")
+        
+        //- Contact Information
+        .contact-info-wrapper
+          .contact-info-card
+            .info-header
+              .info-icon-lg
+                i.fas.fa-address-book
+              h3.info-title Contact Information
+              p.info-subtitle We're here to help you succeed
+            
+            .info-items
+              .info-item
+                .info-icon
+                  i.fas.fa-phone-alt
+                .info-content
+                  strong Phone
+                  a.info-link(href="tel:+13075550100") +1 (307) 555-0100
+              
+              .info-item
+                .info-icon
+                  i.fas.fa-envelope
+                .info-content
+                  strong General Inquiries
+                  a.info-link(href="mailto:info@thecallgrid.com") info@thecallgrid.com
+              
+              .info-item
+                .info-icon
+                  i.fas.fa-map-marker-alt
+                .info-content
+                  strong Location
+                  p.info-text Cheyenne, Wyoming, USA
+              
+              .info-item
+                .info-icon
+                  i.fas.fa-clock
+                .info-content
+                  strong Business Hours
+                  p.info-text Monday - Friday: 8:00 AM - 6:00 PM
+
+block scripts
+  //- Contact form handling
+  script.
+    // Contact form submission
+    const contactForm = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+    
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      btnText.classList.add('hidden');
+      btnLoading.classList.remove('hidden');
+      formMessage.classList.add('hidden');
+      
+      // Collect form data
+      const formData = new FormData(contactForm);
+      const data = Object.fromEntries(formData.entries());
+      
+      try {
+        const response = await fetch('/api/contact/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          // Success message
+          formMessage.textContent = result.message;
+          formMessage.className = 'form-message success';
+          formMessage.classList.remove('hidden');
+          
+          // Reset form
+          contactForm.reset();
+        } else {
+          // Error message
+          const errorMsg = result.errors ? result.errors.join(', ') : result.error;
+          formMessage.textContent = errorMsg;
+          formMessage.className = 'form-message error';
+          formMessage.classList.remove('hidden');
+        }
+      } catch (error) {
+        formMessage.textContent = 'An error occurred. Please try again or call us directly.';
+        formMessage.className = 'form-message error';
+        formMessage.classList.remove('hidden');
+      } finally {
+        // Re-enable submit button
+        submitBtn.disabled = false;
+        btnText.classList.remove('hidden');
+        btnLoading.classList.add('hidden');
+      }
+    });

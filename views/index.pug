@@ -1,0 +1,427 @@
+//- Landing Page
+//- Hero with p5.js grid, services overview, testimonials carousel, and CTAs
+
+extends layout
+
+block content
+  //- Hero Section with p5.js Grid
+  section.hero#hero(data-observe)
+    .hero-content.container
+      .hero-badge
+        span.badge-icon ⭐
+        span.badge-text Trusted by Industry Leaders
+      
+      .hero-main
+        h1.hero-title
+          span.title-line Transform Your
+          span.title-line.highlight Lead Generation
+          span.title-subtitle with C1+ Professional Callers
+        
+        p.hero-description 
+          | Elite call services powered by 
+          strong experienced professionals averaging 4+ years
+          | . 
+          br
+          | Specialized expertise in Real Estate, Solar, Roofing, and Home Renovation industries.
+        
+        .hero-features
+          .hero-feature
+            span.feature-check
+              i.fas.fa-check
+            span.feature-text C1+ Language Proficiency
+          .hero-feature
+            span.feature-check
+              i.fas.fa-check
+            span.feature-text No Up-Front Fees
+          .hero-feature
+            span.feature-check
+              i.fas.fa-check
+            span.feature-text 4+ Years Average Experience
+          .hero-feature
+            span.feature-check
+              i.fas.fa-check
+            span.feature-text Industry-Specialized Teams
+          .hero-feature
+            span.feature-check
+              i.fas.fa-check
+            span.feature-text 98% Client Satisfaction
+          .hero-feature
+            span.feature-check
+              i.fas.fa-check
+            span.feature-text Start Calling In 24-48 Hours
+        
+        .hero-cta
+          .cta-offer
+            span.offer-text No up-front or setup fees
+            span.offer-arrow ↓
+          a.btn.btn-primary.btn-xl(href="/contact")
+            i.fas.fa-phone-alt
+            span Book A Call Now
+            i.fas.fa-arrow-right
+          
+  
+
+  //- Industries Served Section
+  section.industries.section.bg-light(data-observe)
+    .container
+      .section-header
+        .section-subtitle.theme-color Specialized Expertise
+        h2.section-title.theme-color Industries We Serve
+      
+      //- Real Estate Industry - Image Left, Text Right
+      .industry-showcase.industry-left(data-observe)
+        .industry-image
+          img(
+            src="/assets/images/industry-realestate.jpg" 
+            alt="Real Estate Wholesaling Team"
+          )
+          .industry-decorations
+            .decoration-bar
+            .decoration-dots
+        .industry-content
+          .industry-subtitle Professional Real Estate Expertise
+          h3.industry-title Real Estate Wholesaling
+          p.industry-description
+            | Our specialized team understands property valuations, motivated seller psychology, 
+            | and deal flow optimization. We connect you with pre-qualified leads for wholesalers, 
+            | investors, and fix-and-flip professionals who are ready to make deals.
+          .industry-features
+            .feature-item
+              i.fas.fa-chart-line
+              span Motivated Seller Identification
+            .feature-item
+              i.fas.fa-home
+              span Property Pre-qualification
+            .feature-item
+              i.fas.fa-handshake
+              span Deal Flow Management
+          a.industry-cta.btn.btn-primary(href="/services#real-estate") Get Started
+      
+      //- Solar Energy Industry - Text Left, Image Right
+      .industry-showcase.industry-right(data-observe)
+        .industry-content
+          .industry-subtitle Sustainable Energy Solutions
+          h3.industry-title Solar Energy
+          p.industry-description
+            | Expert solar lead generation with callers trained in energy savings, ROI calculations, 
+            | and environmental benefits. We identify homeowners interested in solar installation 
+            | and convert them into qualified leads through ROI-focused conversations.
+          .industry-features
+            .feature-item
+              i.fas.fa-solar-panel
+              span Homeowner Qualification
+            .feature-item
+              i.fas.fa-calculator
+              span ROI Presentation
+            .feature-item
+              i.fas.fa-calendar-check
+              span Installation Scheduling
+          a.industry-cta.btn.btn-primary(href="/services#solar") Get Started
+        .industry-image
+          img(
+            src="/assets/images/industry-solar.jpg" 
+            alt="Solar Energy Consultation"
+          )
+          .industry-decorations
+            .decoration-bar
+            .decoration-dots
+      
+      //- Roofing Industry - Image Left, Text Right
+      .industry-showcase.industry-left(data-observe)
+        .industry-image
+          img(
+            src="/assets/images/industry-roofing.jpg" 
+            alt="Roofing Services Team"
+          )
+          .industry-decorations
+            .decoration-bar
+            .decoration-dots
+        .industry-content
+          .industry-subtitle Storm Damage & Home Improvement
+          h3.industry-title Roofing & Home Renovation
+          p.industry-description
+            | Professional roofing lead generation focused on storm damage, insurance claims, 
+            | and home improvement projects. Our callers identify urgent needs and qualified 
+            | prospects ready to invest in their homes.
+          .industry-features
+            .feature-item
+              i.fas.fa-cloud-rain
+              span Storm Damage Assessment
+            .feature-item
+              i.fas.fa-shield-alt
+              span Insurance Claim Assistance
+            .feature-item
+              i.fas.fa-tools
+              span Emergency Response
+          a.industry-cta.btn.btn-primary(href="/services#roofing") Get Started
+    //- Why Choose Us Section
+  
+  section.why-us.section(data-observe)
+    .container
+      .section-header
+        .section-subtitle Why TheCallGrid?
+        h2.section-title What Makes Us Different
+      
+      .features-grid
+        .feature-card
+          .card-header
+            .card-title
+              .card-icon
+                i.fas.fa-cogs
+              span Our System
+            .card-number 01
+          .card-features
+            .feature-item
+              .feature-icon
+                i.fas.fa-headset
+              .feature-text 24/7 Customer Support
+            .feature-item
+              .feature-icon
+                i.fas.fa-globe
+              .feature-text 99% UP Time
+            .feature-item
+              .feature-icon
+                i.fas.fa-robot
+              .feature-text 50% → 75% Automated Work
+            .feature-item
+              .feature-icon
+                i.fas.fa-chart-line
+              .feature-text Real Time Reports
+        
+        .feature-card
+          .card-header
+            .card-title
+              .card-icon
+                i.fas.fa-users
+              span Our Management
+            .card-number 02
+          .card-features
+            .feature-item
+              .feature-icon
+                i.fas.fa-language
+              .feature-text English - Fluent or Native Speaking
+            .feature-item
+              .feature-icon
+                i.fas.fa-comments
+              .feature-text Highly Effective Communication
+            .feature-item
+              .feature-icon
+                i.fas.fa-database
+              .feature-text CRM Experienced
+            .feature-item
+              .feature-icon
+                i.fas.fa-chalkboard-teacher
+              .feature-text Trained In Processes & Outsourcing
+            .feature-item
+              .feature-icon
+                i.fas.fa-briefcase
+              .feature-text 2-5 Years of Management Experience
+            .feature-item
+              .feature-icon
+                i.fas.fa-graduation-cap
+              .feature-text College Graduate
+        
+        .feature-card
+          .card-header
+            .card-title
+              .card-icon
+                i.fas.fa-user
+              span Our Agents
+            .card-number 03
+          .card-features
+            .feature-item
+              .feature-icon
+                i.fas.fa-globe
+              .feature-text English - Fluent or Native Speaking
+            .feature-item
+              .feature-icon
+                i.fas.fa-phone
+              .feature-text Highly Effective Communication
+            .feature-item
+              .feature-icon
+                i.fas.fa-briefcase
+              .feature-text Minimum 1 Year of Experience
+            .feature-item
+              .feature-icon
+              .feature-text College Graduate
+      
+      .why-us-cta
+        a.btn.btn-light.btn-lg(href="/about") Learn More About Us
+  
+  //- Testimonials Section with Swiper
+  section.testimonials.section(data-observe)
+    .container
+      .section-header
+        .section-subtitle Client Success Stories
+        h2.section-title What Our Clients Say
+        p.section-description Real results from real businesses
+      
+      .testimonials-swiper-wrapper
+        .swiper.testimonials-swiper
+          .swiper-wrapper
+            //- Testimonial 1
+            .swiper-slide
+              .testimonial-card
+                .testimonial-rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                .testimonial-content
+                  blockquote.testimonial-quote
+                    p "TheCallGrid transformed our lead generation completely. Their callers are professional, experienced, and delivered exactly what we needed. We saw a 300% increase in qualified leads within the first month!"
+                .testimonial-author
+                  .author-info
+                    .author-name Michael Rodriguez
+                    .author-role Founder & CEO
+                    .author-company Apex Property Solutions
+                    .author-industry Real Estate Wholesaling
+            
+            //- Testimonial 2
+            .swiper-slide
+              .testimonial-card
+                .testimonial-rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                .testimonial-content
+                  blockquote.testimonial-quote
+                    p "The team at TheCallGrid helped us scale our solar business faster than we ever imagined. Their callers understand the technical aspects and present ROI brilliantly. Best investment we've made!"
+                .testimonial-author
+                  .author-info
+                    .author-name Sarah Chen
+                    .author-role Director of Sales
+                    .author-company SunBright Energy
+                    .author-industry Solar Energy
+            
+            //- Testimonial 3
+            .swiper-slide
+              .testimonial-card
+                .testimonial-rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                .testimonial-content
+                  blockquote.testimonial-quote
+                    p "We needed a reliable team that could handle storm damage leads efficiently. TheCallGrid's callers are trained, professional, and deliver results. Our close rate has improved by 45%!"
+                .testimonial-author
+                  .author-info
+                    .author-name David Thompson
+                    .author-role Operations Manager
+                    .author-company Elite Roofing & Restoration
+                    .author-industry Roofing & Home Renovation
+            
+            //- Testimonial 4
+            .swiper-slide
+              .testimonial-card
+                .testimonial-rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                .testimonial-content
+                  blockquote.testimonial-quote
+                    p "Outstanding service! The quality of leads and professionalism of the callers exceeded our expectations. TheCallGrid has become an integral part of our growth strategy."
+                .testimonial-author
+                  .author-info
+                    .author-name Jennifer Martinez
+                    .author-role Marketing Director
+                    .author-company Premier Home Solutions
+                    .author-industry Home Renovation
+            
+            //- Testimonial 5
+            .swiper-slide
+              .testimonial-card
+                .testimonial-rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                .testimonial-content
+                  blockquote.testimonial-quote
+                    p "The level of expertise and communication is unmatched. Their C1+ callers sound native, understand our business, and consistently deliver high-quality appointments. Highly recommended!"
+                .testimonial-author
+                  .author-info
+                    .author-name Robert Kim
+                    .author-role VP of Business Development
+                    .author-company SolarTech Innovations
+                    .author-industry Solar Energy
+            
+            //- Testimonial 6
+            .swiper-slide
+              .testimonial-card
+                .testimonial-rating
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                  i.fas.fa-star
+                .testimonial-content
+                  blockquote.testimonial-quote
+                    p "Switching to TheCallGrid was the best decision for our real estate business. Their callers are professional, results-driven, and helped us double our qualified leads in just two months. True game-changer!"
+                .testimonial-author
+                  .author-info
+                    .author-name Amanda Foster
+                    .author-role Chief Revenue Officer
+                    .author-company HomeValue Investors
+                    .author-industry Real Estate Wholesaling
+          
+          //- Navigation arrows
+          .swiper-button-prev
+            i.fas.fa-chevron-left
+          .swiper-button-next
+            i.fas.fa-chevron-right
+          //- Pagination dots
+          .swiper-pagination
+  
+  //- CTA Banner Section
+  section.cta-banner.section(data-observe)
+    .container
+      .cta-banner-grid
+        //- Newsletter & SMS Signup
+        .cta-banner-item.signup-section
+          .cta-icon
+            i.fas.fa-envelope
+          h3.cta-banner-title Stay Connected
+          p.cta-banner-description Get exclusive insights, tips, and updates delivered to your inbox or phone.
+          .signup-form
+            form.inline-form
+              .form-row
+                input.form-input(type="email" placeholder="Enter your email" required)
+                button.btn.btn-primary(type="submit") 
+                  span Subscribe
+                  i.fas.fa-arrow-right
+              .form-row
+                input.form-input(type="tel" placeholder="Enter your phone (SMS)" required)
+                button.btn.btn-secondary(type="submit")
+                  span Join SMS
+                  i.fas.fa-arrow-right
+        
+        //- Book a Call CTA
+        .cta-banner-item.call-section
+          .cta-icon
+            i.fas.fa-calendar-check
+          h3.cta-banner-title Ready to Scale Your Business?
+          p.cta-banner-description Connect with our team and discover how C1+ callers can transform your pipeline in 24-48 hours.
+          .cta-stats
+            .stat-item
+              .stat-value(data-target="98" data-suffix="%") 0
+              .stat-label Satisfaction
+            .stat-item
+              .stat-value(data-target="30" data-suffix="K+") 0
+              .stat-label Leads Generated
+            .stat-item
+              .stat-value(data-target="100" data-prefix="$" data-suffix="M+") 0
+              .stat-label Total Closings
+          a.btn.btn-primary.btn-xl(href="/contact")
+            i.fas.fa-phone-alt
+            span Book A Call Now
+            i.fas.fa-arrow-right
+

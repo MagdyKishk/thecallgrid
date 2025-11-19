@@ -1,0 +1,46 @@
+/**
+ * TheCallGrid - Main Stylesheet
+ * 
+ * Modern, responsive design with accessibility features
+ * and performance optimizations.
+ * 
+ * Compiled from SCSS modules for better maintainability
+ */
+
+// ==========================================================================
+// ABSTRACTS
+// ==========================================================================
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// ==========================================================================
+// BASE
+// ==========================================================================
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/animations';
+
+// ==========================================================================
+// LAYOUT
+// ==========================================================================
+@import 'layout/container';
+@import 'layout/header';
+@import 'layout/footer';
+
+// ==========================================================================
+// COMPONENTS
+// ==========================================================================
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/testimonials';
+@import 'components/chat-widget';
+
+// ==========================================================================
+// PAGES
+// ==========================================================================
+@import 'pages/home';
+@import 'pages/about';
+@import 'pages/contact';
+@import 'pages/services';
+

@@ -1,0 +1,136 @@
+// ==========================================================================
+// RESET & BASE STYLES
+// ==========================================================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Layout */
+  --header-height: #{$header-height};
+  
+  /* Colors */
+  --color-primary: #{$color-primary};
+  --color-primary-dark: #{$color-primary-dark};
+  --color-primary-light: #{$color-primary-light};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+  
+  --color-text: #{$color-text};
+  --color-text-light: #{$color-text-light};
+  --color-text-muted: #{$color-text-muted};
+  
+  --color-bg: #{$color-bg};
+  --color-bg-light: #{$color-bg-light};
+  --color-bg-dark: #{$color-bg-dark};
+  
+  --color-border: #{$color-border};
+  --color-success: #{$color-success};
+  --color-warning: #{$color-warning};
+  --color-error: #{$color-error};
+
+  --color-bg-white-gradient: #{$color-bg-white-gradient};
+  
+  /* Typography */
+  --font-family: #{$font-family};
+  --font-size-base: #{$font-size-base};
+  --line-height-base: #{$line-height-base};
+  
+  /* Spacing */
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  
+  /* Transitions */
+  --transition-fast: #{$transition-fast};
+  --transition-base: #{$transition-base};
+  --transition-slow: #{$transition-slow};
+  
+  /* Shadows */
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-xl: #{$shadow-xl};
+  
+  /* Border Radius */
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-xl: #{$radius-xl};
+  --radius-full: #{$radius-full};
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+  background-color: $color-bg-white-gradient;
+}
+
+body {
+  font-family: $font-family;
+  line-height: $line-height-base;
+  color: $color-text;
+  background-color: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+  position: relative;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+// Cursor visibility
+a, button, input, textarea, select, label, [role="button"], [onclick], .clickable,
+.btn, .nav-link, .card, .feature-card, .industry-card, .testimonial-card,
+.carousel-prev, .carousel-next, .carousel-dot, .chat-launcher, .mobile-menu-toggle,
+.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet {
+  cursor: pointer !important;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], input[type="password"], 
+input[type="search"], input[type="url"], textarea, .form-input {
+  cursor: text !important;
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-to-main {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  padding: $spacing-sm;
+  background: $color-primary;
+  color: white;
+  z-index: 10000;
+  
+  &:focus {
+    top: 0;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+

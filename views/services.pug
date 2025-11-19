@@ -1,0 +1,332 @@
+//- Services Page
+//- Comprehensive overview of all TheCallGrid services
+
+extends layout
+
+block content
+  //- Hero Header
+  section.services-hero.section(data-observe)
+    .container
+      .services-hero-content
+        .section-subtitle Our Services
+        h1.services-hero-title Professional Lead Generation Services
+        p.services-hero-description 
+          | Comprehensive calling solutions powered by C1+ professional callers with 4+ years of experience. 
+          | From managed caller pods to data enrichment, we deliver results that scale your business.
+
+  //- Core Services Section
+  section.core-services.section(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle Core Services
+        h2.section-title What We Offer
+        p.section-description Comprehensive solutions tailored to your business needs
+
+      .services-grid
+        //- Managed Caller Pods
+        .service-card(data-observe)
+          .service-icon
+            i.fas.fa-users
+          h3.service-title Managed Caller Pods
+          p.service-description
+            | Dedicated teams of C1+ professional callers assigned exclusively to your campaigns. 
+            | Each pod is managed by experienced supervisors with 2-5 years of management experience 
+            | and trained in your specific processes and industry requirements.
+          .service-features
+            .feature-item
+              i.fas.fa-check-circle
+              span Dedicated team members
+            .feature-item
+              i.fas.fa-check-circle
+              span Experienced pod managers
+            .feature-item
+              i.fas.fa-check-circle
+              span Industry-specific training
+            .feature-item
+              i.fas.fa-check-circle
+              span 24/7 customer support
+          .service-cta
+            a.btn.btn-primary(href="/contact") Get Started
+
+        //- Data Enrichment
+        .service-card(data-observe)
+          .service-icon
+            i.fas.fa-database
+          h3.service-title Data Enrichment
+          p.service-description
+            | Enhance your existing lead lists with verified contact information, property details, 
+            | and qualification data. Our team validates and enriches your database to maximize 
+            | call efficiency and conversion rates.
+          .service-features
+            .feature-item
+              i.fas.fa-check-circle
+              span Contact verification
+            .feature-item
+              i.fas.fa-check-circle
+              span Property data enrichment
+            .feature-item
+              i.fas.fa-check-circle
+              span Lead qualification scoring
+            .feature-item
+              i.fas.fa-check-circle
+              span CRM integration
+          .service-cta
+            a.btn.btn-primary(href="/contact") Get Started
+
+        //- Appointment Setting
+        .service-card(data-observe)
+          .service-icon
+            i.fas.fa-calendar-check
+          h3.service-title Appointment Setting
+          p.service-description
+            | Professional appointment scheduling with automated calendar integration. 
+            | Our callers book qualified appointments directly into your calendar system, 
+            | ensuring seamless follow-up and maximum conversion.
+          .service-features
+            .feature-item
+              i.fas.fa-check-circle
+              span Calendar integration
+            .feature-item
+              i.fas.fa-check-circle
+              span Automated booking
+            .feature-item
+              i.fas.fa-check-circle
+              span Confirmation follow-ups
+            .feature-item
+              i.fas.fa-check-circle
+              span Real-time scheduling
+          .service-cta
+            a.btn.btn-primary(href="/contact") Get Started
+
+        //- Lead Generation
+        .service-card(data-observe)
+          .service-icon
+            i.fas.fa-bullseye
+          h3.service-title Lead Generation
+          p.service-description
+            | High-quality lead generation across multiple industries. Our experienced callers 
+            | identify and qualify prospects, delivering daily leads via email and SMS to keep 
+            | your pipeline consistently full.
+          .service-features
+            .feature-item
+              i.fas.fa-check-circle
+              span Daily lead delivery
+            .feature-item
+              i.fas.fa-check-circle
+              span Email & SMS notifications
+            .feature-item
+              i.fas.fa-check-circle
+              span Quality scoring
+            .feature-item
+              i.fas.fa-check-circle
+              span Weekly performance reports
+          .service-cta
+            a.btn.btn-primary(href="/contact") Get Started
+
+  //- Industry-Specific Services
+  section.industry-services.section.bg-light(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle Industry Expertise
+        h2.section-title Specialized Services by Industry
+        p.section-description Tailored solutions for your specific market
+
+      .industry-services-grid
+        //- Real Estate
+        .industry-service-card(data-observe)#real-estate
+          .industry-service-header
+            .industry-service-icon
+              i.fas.fa-home
+            h3.industry-service-title Real Estate Wholesaling
+          .industry-service-content
+            p.industry-service-description
+              | Specialized real estate lead generation with callers trained in property valuations, 
+              | motivated seller psychology, and deal flow optimization.
+            .industry-service-features
+              .feature-item
+                i.fas.fa-chart-line
+                span Motivated Seller Identification
+              .feature-item
+                i.fas.fa-home
+                span Property Pre-qualification
+              .feature-item
+                i.fas.fa-handshake
+                span Deal Flow Management
+              .feature-item
+                i.fas.fa-dollar-sign
+                span Investment Property Leads
+          .industry-service-cta
+            a.btn.btn-outline(href="/contact") Get Started
+
+        //- Solar Energy
+        .industry-service-card(data-observe)#solar
+          .industry-service-header
+            .industry-service-icon
+              i.fas.fa-solar-panel
+            h3.industry-service-title Solar Energy
+          .industry-service-content
+            p.industry-service-description
+              | Expert solar lead generation with callers trained in energy savings, ROI calculations, 
+              | and environmental benefits.
+            .industry-service-features
+              .feature-item
+                i.fas.fa-user-check
+                span Homeowner Qualification
+              .feature-item
+                i.fas.fa-calculator
+                span ROI Presentation
+              .feature-item
+                i.fas.fa-calendar-check
+                span Installation Scheduling
+              .feature-item
+                i.fas.fa-leaf
+                span Environmental Benefits Education
+          .industry-service-cta
+            a.btn.btn-outline(href="/contact") Get Started
+
+        //- Roofing
+        .industry-service-card(data-observe)#roofing
+          .industry-service-header
+            .industry-service-icon
+              i.fas.fa-tools
+            h3.industry-service-title Roofing & Home Renovation
+          .industry-service-content
+            p.industry-service-description
+              | Professional roofing lead generation focused on storm damage, insurance claims, 
+              | and home improvement projects.
+            .industry-service-features
+              .feature-item
+                i.fas.fa-cloud-rain
+                span Storm Damage Assessment
+              .feature-item
+                i.fas.fa-shield-alt
+                span Insurance Claim Assistance
+              .feature-item
+                i.fas.fa-tools
+                span Emergency Response
+              .feature-item
+                i.fas.fa-hammer
+                span Home Improvement Leads
+          .industry-service-cta
+            a.btn.btn-outline(href="/contact") Get Started
+
+  //- Service Process Section
+  section.service-process.section(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle How It Works
+        h2.section-title Our Service Process
+        p.section-description Simple, transparent, and results-driven
+
+      .process-steps
+        .process-step(data-observe)
+          .step-number 01
+          .step-icon
+            i.fas.fa-phone-alt
+          h3.step-title Discovery Call
+          p.step-description
+            | Schedule a consultation to discuss your needs, goals, and campaign requirements. 
+            | We'll create a custom playbook tailored to your business.
+
+        .process-step(data-observe)
+          .step-number 02
+          .step-icon
+            i.fas.fa-users-cog
+          h3.step-title Team Assignment
+          p.step-description
+            | We assign a dedicated pod of C1+ callers with industry-specific experience. 
+            | Your team is ready to start calling within 24-48 hours.
+
+        .process-step(data-observe)
+          .step-number 03
+          .step-icon
+            i.fas.fa-chart-line
+          h3.step-title Campaign Launch
+          p.step-description
+            | Your campaign goes live with real-time monitoring and daily lead delivery. 
+            | Receive weekly performance reports with complete transparency.
+
+        .process-step(data-observe)
+          .step-number 04
+          .step-icon
+            i.fas.fa-trophy
+          h3.step-title Scale & Optimize
+          p.step-description
+            | As your campaign succeeds, we scale your team and optimize performance based on 
+            | data-driven insights and continuous improvement.
+
+  //- Why Choose Our Services
+  section.why-services.section.bg-light(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle Why TheCallGrid
+        h2.section-title What Sets Our Services Apart
+        p.section-description The advantages of working with professional callers
+
+      .advantages-grid
+        .advantage-card(data-observe)
+          .advantage-icon
+            i.fas.fa-award
+          h3.advantage-title C1+ Language Proficiency
+          p.advantage-text
+            | All our callers meet C1+ language standards with fluent or native English speaking. 
+            | Clear communication that builds trust and converts.
+
+        .advantage-card(data-observe)
+          .advantage-icon
+            i.fas.fa-clock
+          h3.advantage-title 4+ Years Experience
+          p.advantage-text
+            | Average 4+ years of professional calling experience. Our team members have 5-8 years 
+            | in high-stakes sales and lead generation.
+
+        .advantage-card(data-observe)
+          .advantage-icon
+            i.fas.fa-graduation-cap
+          h3.advantage-title College Educated
+          p.advantage-text
+            | All callers and managers are college graduates with strong communication skills 
+            | and professional backgrounds.
+
+        .advantage-card(data-observe)
+          .advantage-icon
+            i.fas.fa-dollar-sign
+          h3.advantage-title No Upfront Fees
+          p.advantage-text
+            | We believe in our services so much that we require no upfront fees. 
+            | You only pay for results that drive your business forward.
+
+        .advantage-card(data-observe)
+          .advantage-icon
+            i.fas.fa-chart-bar
+          h3.advantage-title Complete Transparency
+          p.advantage-text
+            | Daily lead delivery, weekly performance reports, and real-time dashboards. 
+            | You always know exactly what's happening with your campaigns.
+
+        .advantage-card(data-observe)
+          .advantage-icon
+            i.fas.fa-rocket
+          h3.advantage-title Fast Deployment
+          p.advantage-text
+            | Get started in 24-48 hours. No lengthy onboarding process. 
+            | Your dedicated team is ready to start calling immediately.
+
+  //- CTA Section
+  section.services-cta.section(data-observe)
+    .container
+      .services-cta-content(data-observe)
+        h2.services-cta-title Ready to Transform Your Lead Generation?
+        p.services-cta-description 
+          | Join industry leaders who trust TheCallGrid to deliver qualified leads and booked appointments 
+          | with C1+ professional callers.
+        .services-cta-actions
+          a.btn.btn-primary.btn-xl(href="/contact")
+            i.fas.fa-phone-alt
+            span Schedule Consultation
+            i.fas.fa-arrow-right
+          a.btn.btn-secondary.btn-xl(href="/about")
+            i.fas.fa-info-circle
+            span Learn More About Us
+            i.fas.fa-arrow-right
+

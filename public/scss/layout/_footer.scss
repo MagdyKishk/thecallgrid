@@ -1,0 +1,141 @@
+// ==========================================================================
+// FOOTER
+// ==========================================================================
+
+.site-footer {
+  background: $color-text;
+  color: white;
+  padding: $spacing-2xl 0 $spacing-lg;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $spacing-xl;
+  margin-bottom: $spacing-xl;
+}
+
+.footer-title {
+  font-size: 1.125rem;
+  margin-bottom: $spacing-md;
+}
+
+.footer-menu {
+  list-style: none;
+  
+  li {
+    margin-bottom: $spacing-xs;
+  }
+  
+  a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+.footer-address {
+  font-style: normal;
+  
+  p {
+    margin-bottom: $spacing-sm;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: $spacing-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  
+  @include mobile {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer-legal {
+  display: flex;
+  gap: $spacing-md;
+  list-style: none;
+}
+
+// Social Links
+.social-links {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: $radius-full;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1.5rem;
+  transition: all $transition-base;
+  text-decoration: none;
+  
+  &:hover {
+    background: $color-primary;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  i {
+    font-size: 1.5rem;
+  }
+}
+
+// Mouse Glow
+.mouse-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999 !important;
+  mix-blend-mode: normal;
+  filter: blur(2px);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+// Scroll to Top Button
+.scroll-to-top {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: $radius-full;
+  background: $color-primary;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: $shadow-lg;
+  opacity: 0;
+  pointer-events: none;
+  transition: all $transition-base;
+  z-index: 999;
+  
+  &.visible {
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  &:hover {
+    transform: translateY(-5px);
+    background: $color-primary-dark;
+  }
+}
+

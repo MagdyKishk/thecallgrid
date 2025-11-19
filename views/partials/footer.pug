@@ -1,0 +1,79 @@
+//- Site Footer
+//- Footer with company info, links, social media, and contact details
+
+footer.site-footer(role="contentinfo")
+  .container
+    .footer-grid
+      //- Company Info
+      .footer-section.footer-about
+        .footer-logo
+          img(src="/assets/logo white.svg" alt="TheCallGrid Logo" width="180" height="45")
+        p.footer-tagline Professional lead generation with C1+ callers averaging 4+ years of experience.
+        .footer-social 
+        //- Social Media Links
+        if facebookHandle || twitterHandle || instagramHandle
+          .social-links
+            if facebookHandle
+              a.social-link(href=`https://facebook.com/${facebookHandle.replace('@', '')}` target="_blank" rel="noopener noreferrer" aria-label="Facebook")
+                i.fab.fa-facebook-f
+            if twitterHandle
+              a.social-link(href=`https://twitter.com/${twitterHandle.replace('@', '')}` target="_blank" rel="noopener noreferrer" aria-label="Twitter")
+                i.fab.fa-twitter
+            if instagramHandle
+              a.social-link(href=`https://instagram.com/${instagramHandle.replace('@', '')}` target="_blank" rel="noopener noreferrer" aria-label="Instagram")
+                i.fab.fa-instagram
+      //- Quick Links
+      .footer-section.footer-links
+        h3.footer-title Quick Links
+        ul.footer-menu
+          li
+            a(href="/") Home
+          li
+            a(href="/services") Services
+          li
+            a(href="/about") About Us
+          li
+            a(href="/contact") Contact
+      
+      //- Industries
+      .footer-section.footer-industries
+        h3.footer-title Industries We Serve
+        ul.footer-menu
+          li Real Estate Wholesaling
+          li Solar Energy
+          li Roofing Services
+          li Home Renovation
+          li Custom Solutions
+      
+      //- Contact Info
+      .footer-section.footer-contact
+        h3.footer-title Contact Us
+        address.footer-address
+          p
+            strong Location:
+            br
+            = companyAddress
+          p
+            strong Phone:
+            br
+            a(href=`tel:${companyPhone}`)= companyPhone
+          p
+            strong Email:
+            br
+            a(href=`mailto:${companyEmail}`)= companyEmail
+          p
+            strong Business Hours:
+            br
+            | Mon-Fri: 8:00 AM - 6:00 PM
+    
+    //- Copyright & Legal
+    .footer-bottom
+      p.copyright &copy; #{new Date().getFullYear()} #{siteName}. All rights reserved.
+      ul.footer-legal
+        li
+          a(href="/privacy") Privacy Policy
+        li
+          a(href="/terms") Terms of Service
+        li
+          a(href="/sitemap.xml") Sitemap
+

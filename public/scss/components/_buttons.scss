@@ -1,0 +1,138 @@
+// ==========================================================================
+// BUTTONS
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: $radius-md;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-fast;
+  text-align: center;
+  font-size: 1rem;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.btn-primary {
+  background: $color-primary;
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  i {
+    font-size: 0.875rem;
+  }
+  
+  &:hover {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px 0 rgba(81, 117, 255, 0.23);
+  }
+}
+
+.btn-secondary {
+  background: transparent;
+  color: $color-primary;
+  border: 2px solid $color-primary;
+  
+  &:hover {
+    background: $color-primary;
+    color: white;
+  }
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid $color-primary;
+  color: $color-primary;
+  
+  &:hover {
+    background: $color-primary;
+    color: white;
+    border-color: $color-primary;
+  }
+}
+
+.btn-outline-light {
+  border-color: white;
+  color: white;
+  
+  &:hover {
+    background: white;
+    color: $color-primary;
+  }
+}
+
+.btn-light {
+  background: white;
+  color: $color-primary;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-xl {
+  padding: 1.125rem 2.5rem;
+  font-size: 1.125rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: $gradient-primary;
+  color: white;
+  border: none;
+  font-weight: 600;
+  
+  &:hover {
+    background: linear-gradient(135deg, #5a3b8f 0%, $color-primary 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+  }
+  
+  i:first-child {
+    font-size: 1.25rem;
+  }
+  
+  i:last-child {
+    font-size: 1rem;
+  }
+  
+  @include mobile {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &.hidden {
+    display: none;
+  }
+}
+

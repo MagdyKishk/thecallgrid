@@ -1,0 +1,244 @@
+//- About Page
+//- Company mission, team, automation focus, and caller expertise
+
+extends layout
+
+block content
+  //- Hero Header
+  section.about-hero.section
+    .container
+      .about-hero-content(data-observe)
+        .section-subtitle About TheCallGrid
+        h1.about-hero-title Transforming Lead Generation with Elite Professionals
+        p.about-hero-description 
+          | Wyoming-based excellence powered by C1+ callers with 4+ years of experience and cutting-edge automation that delivers real results.
+
+  //- Mission & Stats Section
+  section.mission.section(data-observe)
+    .container
+      //- Stats at the top
+      .mission-stats-top(data-observe)
+        .stat-card(data-observe)
+          .stat-icon
+            i.fas.fa-calendar-alt
+          .stat-content
+            .stat-value(data-target="3" data-suffix="+") 0
+            .stat-label Years in Business
+        
+        .stat-card(data-observe)
+          .stat-icon
+            i.fas.fa-user-tie
+          .stat-content
+            .stat-value(data-target="4" data-suffix="+") 0
+            .stat-label Avg. Experience (Years)
+        
+        .stat-card(data-observe)
+          .stat-icon
+            i.fas.fa-smile
+          .stat-content
+            .stat-value(data-target="98" data-suffix="%") 0
+            .stat-label Client Satisfaction
+        
+        .stat-card(data-observe)
+          .stat-icon
+            i.fas.fa-chart-line
+          .stat-content
+            .stat-value(data-target="30" data-suffix="K+") 0
+            .stat-label Leads Generated
+      
+      //- Mission content below stats
+      .mission-content-wrapper(data-observe)
+        .mission-content
+          .mission-icon
+            i.fas.fa-bullseye
+          h2.mission-title Our Mission
+          p.mission-text 
+            | At TheCallGrid, our mission is to deliver exceptionally high-quality lead generation with absolutely no risk to our clients. We believe in our services so much that we require no upfront fees—you only pay for results.
+          
+          p.mission-text
+            | We support all types of businesses with our elite C1+ professional callers, specializing in Real Estate, Solar, Home Renovations, and Roofing industries. Based in Cheyenne, Wyoming, we serve clients across the United States with experienced teams averaging 4+ years in the field.
+
+  //- Transparency Section
+  section.transparency.section(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle Complete Transparency
+        h2.section-title Full Visibility Into Your Results
+        p.section-description We believe in complete transparency. You'll always know exactly what's happening with your campaigns.
+      
+      .transparency-grid
+        .transparency-item(data-observe)
+          .transparency-icon
+            i.fas.fa-calendar-day
+          .transparency-content
+            h3.transparency-title Daily Lead Delivery
+            p.transparency-text Receive fresh leads every single day via email and SMS. No waiting, no delays - just consistent lead flow to keep your pipeline full.
+        
+        .transparency-item(data-observe)
+          .transparency-icon
+            i.fas.fa-chart-line
+          .transparency-content
+            h3.transparency-title Weekly Performance Reports
+            p.transparency-text Get detailed weekly reports showing call volumes, conversion rates, lead quality scores, and ROI metrics. Track your success with complete data transparency.
+
+  //- C1+ Callers Section
+  section.callers.section(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle Excellence Standards
+        h2.section-title What Makes Our Callers Better?
+        p.section-description We don't just hire warm bodies. Every caller meets strict criteria for professional excellence.
+      
+      .callers-grid
+        .caller-requirement(data-observe)
+          .requirement-icon
+            i.fas.fa-clock
+          h3.requirement-title 4+ Years Experience
+          p.requirement-text 
+            | Minimum 4 years of professional calling experience. Most of our team members have 5-8 years in high-stakes sales and lead generation.
+        
+        .caller-requirement(data-observe)
+          .requirement-icon
+            i.fas.fa-comments
+          h3.requirement-title C1+ Language Proficiency
+          p.requirement-text 
+            | Advanced professional language skills. Clear articulation, active listening, and ability to build rapport quickly.
+        
+        .caller-requirement(data-observe)
+          .requirement-icon
+            i.fas.fa-bullseye
+          h3.requirement-title Industry Knowledge
+          p.requirement-text 
+            | Deep understanding of the industries they serve. Real estate callers understand property markets. Solar callers know energy savings calculations.
+        
+        .caller-requirement(data-observe)
+          .requirement-icon
+            i.fas.fa-graduation-cap
+          h3.requirement-title Ongoing Training
+          p.requirement-text 
+            | Weekly training sessions on objection handling, industry trends, and communication best practices. Continuous improvement is mandatory.
+        
+        .caller-requirement(data-observe)
+          .requirement-icon
+            i.fas.fa-trophy
+          h3.requirement-title Performance Excellence
+          p.requirement-text 
+            | Track record of high conversion rates, positive customer feedback, and consistent performance. We only keep the best.
+        
+        .caller-requirement(data-observe)
+          .requirement-icon
+            i.fas.fa-check-circle
+          h3.requirement-title Quality Assurance
+          p.requirement-text 
+            | 100% call monitoring and regular QA reviews. Every caller receives weekly feedback and coaching from our QA team.
+
+  //- Automation Focus Section
+  section.automation.section(data-observe)
+    .container
+      .automation-grid
+        .automation-content(data-observe)
+          .automation-icon-header
+            i.fas.fa-cogs
+          h2.automation-title Automation That Works For You
+          p.automation-text 
+            | Our proprietary automation platform eliminates busy work and amplifies human expertise. While other call centers waste caller time on data entry and manual dialing, our system handles:
+          
+          .automation-features
+            .feature-item(data-observe)
+              .feature-icon
+                i.fas.fa-phone-volume
+              .feature-content
+                strong Intelligent Dialing
+                span Predictive algorithms maximize talk time
+            
+            .feature-item(data-observe)
+              .feature-icon
+                i.fas.fa-sync
+              .feature-content
+                strong CRM Synchronization
+                span Real-time data sync with your systems
+            
+            .feature-item(data-observe)
+              .feature-icon
+                i.fas.fa-calendar-check
+              .feature-content
+                strong Appointment Scheduling
+                span Automated booking and calendar integration
+            
+            .feature-item(data-observe)
+              .feature-icon
+                i.fas.fa-star
+              .feature-content
+                strong Lead Scoring
+                span AI-powered qualification and prioritization
+            
+            .feature-item(data-observe)
+              .feature-icon
+                i.fas.fa-envelope-open-text
+              .feature-content
+                strong Follow-up Automation
+                span Drip campaigns and reminder systems
+            
+            .feature-item(data-observe)
+              .feature-icon
+                i.fas.fa-chart-bar
+              .feature-content
+                strong Performance Analytics
+                span Real-time dashboards and detailed reporting
+          
+          p.automation-text.automation-conclusion
+            | This means our callers spend more time having meaningful conversations and building relationships—the human touch that converts leads into customers.
+
+  //- Values Section
+  section.values.section(data-observe)
+    .container
+      .section-header(data-observe)
+        .section-subtitle What Drives Us
+        h2.section-title Our Core Values
+        p.section-description The principles that guide everything we do
+      
+      .values-grid
+        .value-card(data-observe)
+          .value-icon
+            i.fas.fa-award
+          h3.value-title Quality First
+          p.value-text 
+            | We never sacrifice quality for quantity. C1+ callers with 4+ years experience is our minimum standard, not an aspiration.
+        
+        .value-card(data-observe)
+          .value-icon
+            i.fas.fa-handshake
+          h3.value-title Client Partnership
+          p.value-text 
+            | Your success is our success. We work as an extension of your team, not just a vendor providing a service.
+        
+        .value-card(data-observe)
+          .value-icon
+            i.fas.fa-lightbulb
+          h3.value-title Innovation
+          p.value-text 
+            | Continuous improvement through automation, training, and industry best practices. We never stop evolving.
+        
+        .value-card(data-observe)
+          .value-icon
+            i.fas.fa-chart-line
+          h3.value-title Transparency
+          p.value-text 
+            | Clear reporting, honest communication, and data-driven decision making at every step of our partnership.
+
+  //- CTA Section
+  section.about-cta.section(data-observe)
+    .container
+      .about-cta-content(data-observe)
+        h2.about-cta-title Ready to Experience the Difference?
+        p.about-cta-description 
+          | Join industry leaders who trust TheCallGrid to transform their lead generation with C1+ professional callers.
+        .about-cta-actions
+          a.btn.btn-primary.btn-xl(href="/contact")
+            i.fas.fa-phone-alt
+            span Schedule Consultation
+            i.fas.fa-arrow-right
+          a.btn.btn-secondary.btn-xl(href="/services")
+            i.fas.fa-briefcase
+            span View Our Services
+            i.fas.fa-arrow-right

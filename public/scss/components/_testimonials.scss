@@ -1,0 +1,225 @@
+// ==========================================================================
+// TESTIMONIALS
+// ==========================================================================
+
+.testimonials.section {
+  min-height: 80vh;
+  padding: 4rem 0;
+  background: $color-bg-white-gradient;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-subtitle {
+    color: $color-primary;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem;
+    margin-bottom: $spacing-sm;
+  }
+  
+  .section-title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+    color: $color-primary;
+    @include gradient-text;
+  }
+  
+  .section-description {
+    font-size: 1.125rem;
+    color: $color-text-muted;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  @include mobile {
+    min-height: auto;
+    padding: 3rem 0;
+    
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+}
+
+.testimonials-swiper-wrapper {
+  position: relative;
+  padding: $spacing-xl 0;
+}
+
+.testimonials-swiper {
+  padding: 0 50px !important;
+  overflow: visible !important;
+  
+  @include mobile {
+    padding: 0 35px !important;
+  }
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  transition: all $transition-base;
+  border: 2px solid transparent;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-xl;
+    border-color: $color-primary;
+  }
+  
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}
+
+.testimonials-swiper .swiper-slide-active .testimonial-card {
+  box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3), 0 4px 12px rgba(102, 126, 234, 0.2);
+  border-color: $color-primary;
+  transform: scale(1.02);
+  transition: all $transition-base;
+}
+
+.testimonial-rating {
+  margin-bottom: $spacing-md;
+  display: flex;
+  gap: 0.25rem;
+  
+  i {
+    color: #FFD700;
+    font-size: 1.25rem;
+    filter: drop-shadow(0 1px 2px rgba(255, 193, 7, 0.3));
+  }
+}
+
+.testimonial-content {
+  flex: 1;
+  margin-bottom: $spacing-lg;
+}
+
+.testimonial-quote {
+  margin: 0;
+  
+  p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: $color-text-light;
+    margin: 0;
+    font-style: italic;
+  }
+}
+
+.testimonial-author {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: $spacing-md;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.author-name {
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: $color-text;
+}
+
+.author-role {
+  color: $color-text-muted;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.author-company {
+  color: $color-primary;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.author-industry {
+  color: $color-text-muted;
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+// Swiper Navigation
+.testimonials-swiper .swiper-button-prev,
+.testimonials-swiper .swiper-button-next {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: $radius-full;
+  box-shadow: $shadow-md;
+  transition: all $transition-fast;
+  
+  i {
+    font-size: 1.125rem;
+    color: $color-primary;
+    transition: color $transition-fast;
+  }
+  
+  &:hover {
+    box-shadow: 0 0 0 2px rgba(81, 117, 255, 0.25);
+    transition: box-shadow $transition-fast;
+  }
+  
+  @include mobile {
+    width: 36px;
+    height: 36px;
+    
+    i {
+      font-size: 0.875rem;
+    }
+  }
+}
+
+.testimonials-swiper .swiper-button-prev {
+  left: 0;
+}
+
+.testimonials-swiper .swiper-button-next {
+  right: 0;
+}
+
+// Swiper Pagination
+.testimonials-swiper .swiper-pagination {
+  position: relative;
+  margin-top: $spacing-xl;
+  bottom: 0 !important;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: $color-border;
+  opacity: 1;
+  transition: all $transition-fast;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background: $color-primary;
+  width: 32px;
+  border-radius: 6px;
+}
+

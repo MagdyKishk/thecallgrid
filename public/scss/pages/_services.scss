@@ -1,0 +1,454 @@
+// ==========================================================================
+// SERVICES PAGE
+// ==========================================================================
+
+// Services Hero
+.services-hero.section {
+  padding: 5rem 0 3rem;
+  background: $gradient-primary;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  @include pattern-bg;
+  
+  @include mobile {
+    padding: 3rem 0 2rem;
+  }
+}
+
+.services-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-hero .section-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  margin-bottom: $spacing-sm;
+}
+
+.services-hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: $spacing-md;
+  line-height: 1.2;
+  
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+.services-hero-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+// Core Services Section
+.core-services.section {
+  padding: 5rem 0;
+  background: white;
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  border: 2px solid transparent;
+  transition: all $transition-base;
+  
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+    transform: translateY(-8px);
+  }
+  
+  @include mobile {
+    padding: 2rem;
+  }
+}
+
+.service-icon {
+  @include gradient-icon(70px);
+  margin-bottom: 1.5rem;
+  
+  i {
+    font-size: 2rem;
+  }
+}
+
+.service-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 1rem;
+}
+
+.service-description {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: $color-text-muted;
+  margin-bottom: 1.5rem;
+}
+
+.service-features {
+  margin-bottom: 2rem;
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    
+    i {
+      color: $color-primary;
+      font-size: 1rem;
+    }
+    
+    span {
+      color: $color-text;
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+.service-cta {
+  margin-top: auto;
+}
+
+// Industry Services Section
+.industry-services.section {
+  padding: 5rem 0;
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}
+
+.industry-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.industry-service-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  border: 2px solid transparent;
+  transition: all $transition-base;
+  
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+    transform: translateY(-8px);
+  }
+  
+  @include mobile {
+    padding: 2rem;
+  }
+}
+
+.industry-service-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.industry-service-icon {
+  @include gradient-icon(60px);
+  
+  i {
+    font-size: 1.75rem;
+  }
+}
+
+.industry-service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+}
+
+.industry-service-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $color-text-muted;
+  margin-bottom: 1.5rem;
+}
+
+.industry-service-features {
+  margin-bottom: 1.5rem;
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    
+    i {
+      color: $color-primary;
+      font-size: 0.9375rem;
+    }
+    
+    span {
+      color: $color-text;
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+.industry-service-cta {
+  margin-top: auto;
+}
+
+// Service Process Section
+.service-process.section {
+  padding: 5rem 0;
+  background: white;
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.process-step {
+  text-align: center;
+  position: relative;
+  
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    right: -1rem;
+    width: 2rem;
+    height: 2px;
+    background: $color-primary;
+    opacity: 0.3;
+    
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.step-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(102, 126, 234, 0.1);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.step-icon {
+  @include gradient-icon(80px);
+  margin: 0 auto 1.5rem;
+  
+  i {
+    font-size: 2rem;
+  }
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 1rem;
+}
+
+.step-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $color-text-muted;
+}
+
+// Why Services Section
+.why-services.section {
+  padding: 5rem 0;
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.advantage-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-md;
+  border: 2px solid transparent;
+  transition: all $transition-base;
+  text-align: center;
+  
+  &:hover {
+    border-color: $color-primary;
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.15);
+    transform: translateY(-8px);
+  }
+  
+  @include mobile {
+    padding: 2rem;
+  }
+}
+
+.advantage-icon {
+  @include gradient-icon(80px);
+  margin: 0 auto 1.5rem;
+  
+  i {
+    font-size: 2rem;
+  }
+}
+
+.advantage-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 1rem;
+}
+
+.advantage-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $color-text-muted;
+}
+
+// Services CTA Section
+.services-cta.section {
+  padding: 5rem 0;
+  background: $gradient-primary;
+  position: relative;
+  overflow: hidden;
+  @include pattern-bg;
+  
+  @include mobile {
+    padding: 3rem 0;
+  }
+}
+
+.services-cta-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-cta-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+  
+  @include mobile {
+    font-size: 2rem;
+  }
+}
+
+.services-cta-description {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+.services-cta-actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    backdrop-filter: blur(10px);
+    
+    &:hover {
+      background: white;
+      color: $color-primary;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+    
+    .btn-xl {
+      width: 100%;
+    }
+  }
+}
+
