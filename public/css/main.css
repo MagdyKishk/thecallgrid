@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * TheCallGrid - Main Stylesheet
  * 
@@ -64,6 +65,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   background-color: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.95) 20%, rgba(255, 255, 255, 0.95) 50%, rgba(255, 255, 255, 0.95) 80%, rgba(255, 255, 255, 0) 90%, rgba(255, 255, 255, 0) 100%);
+  position: relative;
 }
 
 body {
@@ -73,7 +75,6 @@ body {
   background-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
   position: relative;
   min-height: 100vh;
 }
@@ -84,16 +85,21 @@ main {
   background-color: transparent;
 }
 
-a, button, input, textarea, select, label, [role=button], [onclick], .clickable,
-.btn, .nav-link, .card, .feature-card, .industry-card, .testimonial-card,
-.carousel-prev, .carousel-next, .carousel-dot, .chat-launcher, .mobile-menu-toggle,
-.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet {
-  cursor: pointer !important;
-}
-
-input[type=text], input[type=email], input[type=tel], input[type=password],
-input[type=search], input[type=url], textarea, .form-input {
-  cursor: text !important;
+#grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: none;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(118, 75, 162, 0.02) 100%);
+  background-image: linear-gradient(45deg, transparent 0%, transparent calc(50% - 0.5px), rgba(102, 126, 234, 0.15) calc(50% - 0.5px), rgba(102, 126, 234, 0.15) calc(50% + 0.5px), transparent calc(50% + 0.5px), transparent 100%), linear-gradient(-45deg, transparent 0%, transparent calc(50% - 0.5px), rgba(102, 126, 234, 0.15) calc(50% - 0.5px), rgba(102, 126, 234, 0.15) calc(50% + 0.5px), transparent calc(50% + 0.5px), transparent 100%), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(102, 126, 234, 0.5) 79px, rgba(102, 126, 234, 0.5) 81px, transparent 81px, transparent 80px), repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(102, 126, 234, 0.5) 79px, rgba(102, 126, 234, 0.5) 81px, transparent 81px, transparent 80px), radial-gradient(circle, rgba(102, 126, 234, 0.7) 2px, transparent 2.5px);
+  background-size: 80px 80px, 80px 80px, 80px 100%, 100% 80px, 80px 80px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
 }
 
 .sr-only {
@@ -509,15 +515,6 @@ a:hover {
   font-size: 1.5rem;
 }
 
-.mouse-glow {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999 !important;
-  mix-blend-mode: normal;
-  filter: blur(2px);
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
 .scroll-to-top {
   position: fixed;
   bottom: 90px;
@@ -698,6 +695,29 @@ a:hover {
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
+.form-input.error,
+.form-textarea.error,
+.form-select.error {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.05);
+}
+.form-input.error:focus,
+.form-textarea.error:focus,
+.form-select.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+.form-input.valid,
+.form-textarea.valid,
+.form-select.valid {
+  border-color: #10b981;
+}
+.form-input.valid:focus,
+.form-textarea.valid:focus,
+.form-select.valid:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
 
 .form-textarea {
   min-height: 120px;
@@ -718,6 +738,37 @@ a:hover {
   }
 }
 
+.form-error {
+  display: none;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #dc2626;
+  font-weight: 500;
+}
+.form-error.visible {
+  display: block;
+  animation: slideDown 0.2s ease-out;
+}
+.form-error::before {
+  content: "⚠ ";
+  margin-right: 0.25rem;
+}
+
+.form-char-count {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #718096;
+  text-align: right;
+}
+.form-char-count.error {
+  color: #dc2626;
+  font-weight: 600;
+}
+.form-char-count #message-count {
+  font-weight: 600;
+  color: #667eea;
+}
+
 .form-message {
   padding: 1.5rem;
   border-radius: 8px;
@@ -735,6 +786,16 @@ a:hover {
   border: 2px solid #ef4444;
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .inline-form .form-row {
   display: flex;
   gap: 0.75rem;
@@ -1557,31 +1618,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-#p5-canvas-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  opacity: 0.7;
-  transition: opacity 1s ease;
-  touch-action: none;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-#p5-canvas-container canvas {
-  pointer-events: none;
-  display: block;
-  cursor: none;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .hero-badge {

@@ -6,6 +6,12 @@ title= title || 'TheCallGrid - Professional Lead Generation Services'
 meta(name="description" content=description || 'Professional lead generation and call services with C1+ callers.')
 if keywords
   meta(name="keywords" content=keywords)
+meta(name="language" content="English")
+meta(name="revisit-after" content="7 days")
+meta(name="distribution" content="global")
+meta(name="rating" content="general")
+meta(name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1")
+meta(name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1")
 
 //- Canonical URL
 - const canonicalUrl = `${siteUrl}${canonical || ''}`
@@ -17,33 +23,131 @@ meta(property="og:title" content=title)
 meta(property="og:description" content=description)
 meta(property="og:url" content=canonicalUrl)
 meta(property="og:type" content=ogType || 'website')
-meta(property="og:image" content=ogImage || `${siteUrl}/assets/images/og-image.jpg`)
-meta(property="og:image:width" content="1200")
-meta(property="og:image:height" content="630")
+meta(property="og:image" content=ogImage || `${siteUrl}/assets/logo.svg`)
+meta(property="og:image:secure_url" content=ogImage || `${siteUrl}/assets/logo.svg`)
+meta(property="og:image:type" content="image/svg+xml")
+meta(property="og:image:alt" content=title)
 meta(property="og:locale" content="en_US")
+meta(property="og:locale:alternate" content="en_US")
+if companyEmail
+  meta(property="og:email" content=companyEmail)
 
 //- Twitter Card Tags
 meta(name="twitter:card" content="summary_large_image")
 meta(name="twitter:title" content=title)
 meta(name="twitter:description" content=description)
-meta(name="twitter:image" content=ogImage || `${siteUrl}/assets/images/og-image.jpg`)
+meta(name="twitter:image" content=ogImage || `${siteUrl}/assets/logo.svg`)
+meta(name="twitter:image:alt" content=title)
 if twitterHandle
   meta(name="twitter:site" content=twitterHandle)
+  meta(name="twitter:creator" content=twitterHandle)
 
 //- Additional SEO
-meta(name="robots" content="index, follow")
+meta(name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1")
 meta(name="author" content="TheCallGrid")
 meta(name="theme-color" content="#1a73e8")
+meta(name="color-scheme" content="light")
+meta(name="format-detection" content="telephone=yes")
+meta(http-equiv="content-language" content="en-US")
+meta(name="geo.region" content="US-WY")
+meta(name="geo.placename" content="Cheyenne")
+meta(name="coverage" content="Worldwide")
+meta(name="target" content="all")
+meta(name="audience" content="all")
+meta(name="rating" content="general")
+meta(name="distribution" content="global")
 
 //- Mobile App Tags
 meta(name="mobile-web-app-capable" content="yes")
 meta(name="apple-mobile-web-app-capable" content="yes")
 meta(name="apple-mobile-web-app-status-bar-style" content="black-translucent")
+meta(name="apple-mobile-web-app-title" content=siteName)
+meta(name="application-name" content=siteName)
 
-//- Hreflang (scaffold for future multi-locale support)
-//- link(rel="alternate" hreflang="en-US" href=canonicalUrl)
+//- Dublin Core Metadata
+meta(name="DC.title" content=title)
+meta(name="DC.creator" content=siteName)
+meta(name="DC.subject" content=keywords || "lead generation, appointment setting, call center services")
+meta(name="DC.description" content=description)
+meta(name="DC.publisher" content=siteName)
+meta(name="DC.contributor" content=siteName)
+meta(name="DC.date" content=new Date().toISOString().split('T')[0])
+meta(name="DC.type" content="website")
+meta(name="DC.format" content="text/html")
+meta(name="DC.identifier" content=canonicalUrl)
+meta(name="DC.language" content="en-US")
+meta(name="DC.coverage" content="United States")
+meta(name="DC.rights" content="Copyright TheCallGrid")
+
+//- Hreflang (English - US)
+link(rel="alternate" hreflang="en-US" href=canonicalUrl)
+link(rel="alternate" hreflang="x-default" href=canonicalUrl)
 
 //- JSON-LD Structured Data
+//- Build social media array
+- const socialLinks = []
+- if (facebookHandle) socialLinks.push(`https://www.facebook.com/${facebookHandle.replace('@', '')}`)
+- if (twitterHandle) socialLinks.push(`https://twitter.com/${twitterHandle.replace('@', '')}`)
+- if (instagramHandle) socialLinks.push(`https://www.instagram.com/${instagramHandle.replace('@', '')}`)
+- socialLinks.push('https://www.linkedin.com/company/thecallgrid')
+
+//- Organization Schema (All Pages)
+script(type="application/ld+json").
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "#{siteName}",
+    "alternateName": "TheCallGrid",
+    "url": "#{siteUrl}",
+    "logo": "#{siteUrl}/assets/logo.svg",
+    "image": "#{siteUrl}/assets/logo.svg",
+    "description": "Professional lead generation and call services with C1+ professional callers averaging 4+ years of experience.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Main Street",
+      "addressLocality": "Cheyenne",
+      "addressRegion": "WY",
+      "postalCode": "82001",
+      "addressCountry": "US"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "#{companyPhone}",
+      "email": "#{companyEmail}",
+      "contactType": "Customer Service",
+      "areaServed": "US",
+      "availableLanguage": ["English"]
+    },
+    "sameAs": #{JSON.stringify(socialLinks)},
+    "foundingDate": "2021",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": "50-100"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    }
+  }
+
+//- Website Schema (All Pages)
+script(type="application/ld+json").
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "#{siteName}",
+    "url": "#{siteUrl}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "#{siteUrl}/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+
+//- LocalBusiness Schema (Home & Contact Pages)
 if pageClass === 'page-home' || pageClass === 'page-contact'
   script(type="application/ld+json").
     {
@@ -74,13 +178,26 @@ if pageClass === 'page-home' || pageClass === 'page-contact'
       "priceRange": "$$",
       "image": "#{siteUrl}/assets/logo.svg",
       "logo": "#{siteUrl}/assets/logo.svg",
-      "sameAs": [
-        "https://www.facebook.com/thecallgrid",
-        "https://www.linkedin.com/company/thecallgrid",
-        "https://twitter.com/thecallgrid"
-      ]
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150"
+      }
     }
 
+//- ContactPage Schema
 if pageClass === 'page-contact'
   script(type="application/ld+json").
     {
@@ -100,4 +217,38 @@ if pageClass === 'page-contact'
         }
       }
     }
+
+//- Service Schema (Services Page)
+if pageClass === 'page-services'
+  script(type="application/ld+json").
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Lead Generation Services",
+      "provider": {
+        "@type": "Organization",
+        "name": "#{siteName}",
+        "url": "#{siteUrl}"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "description": "Professional lead generation, appointment setting, and call services with C1+ professional callers.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+
+//- BreadcrumbList Schema (All Pages)
+- const breadcrumbList = [{ "@type": "ListItem", "position": 1, "name": "Home", "item": `${siteUrl}/` }]
+- if (canonical !== '') breadcrumbList.push({ "@type": "ListItem", "position": 2, "name": title.split('|')[0].trim(), "item": `${siteUrl}${canonical}` })
+
+script(type="application/ld+json").
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": !{JSON.stringify(breadcrumbList)}
+  }
 

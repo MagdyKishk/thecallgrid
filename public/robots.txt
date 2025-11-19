@@ -1,0 +1,12 @@
+# robots.txt for TheCallGrid
+# https://www.thecallgrid.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.thecallgrid.com/sitemap.xml
+
+# Crawl-delay (optional - remove if not needed)
+# Crawl-delay: 1
+

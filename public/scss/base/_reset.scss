@@ -70,6 +70,7 @@ html {
   font-size: $font-size-base;
   scroll-behavior: smooth;
   background-color: $color-bg-white-gradient;
+  position: relative;
 }
 
 body {
@@ -79,7 +80,6 @@ body {
   background-color: $color-bg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none;
   position: relative;
   min-height: 100vh;
 }
@@ -90,17 +90,80 @@ main {
   background-color: transparent;
 }
 
-// Cursor visibility
-a, button, input, textarea, select, label, [role="button"], [onclick], .clickable,
-.btn, .nav-link, .card, .feature-card, .industry-card, .testimonial-card,
-.carousel-prev, .carousel-next, .carousel-dot, .chat-launcher, .mobile-menu-toggle,
-.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet {
-  cursor: pointer !important;
-}
-
-input[type="text"], input[type="email"], input[type="tel"], input[type="password"], 
-input[type="search"], input[type="url"], textarea, .form-input {
-  cursor: text !important;
+// Grid Background
+#grid-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: none;
+  overflow: hidden;
+  
+  // Base gradient background
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(118, 75, 162, 0.02) 100%);
+  
+  // Grid lines and nodes combined
+  background-image: 
+    // Diagonal X lines - top-left to bottom-right (within each square, aligned to corners)
+    linear-gradient(
+      45deg,
+      transparent 0%,
+      transparent calc(50% - 0.5px),
+      rgba(102, 126, 234, 0.15) calc(50% - 0.5px),
+      rgba(102, 126, 234, 0.15) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px),
+      transparent 100%
+    ),
+    // Diagonal X lines - top-right to bottom-left (within each square, aligned to corners)
+    linear-gradient(
+      -45deg,
+      transparent 0%,
+      transparent calc(50% - 0.5px),
+      rgba(102, 126, 234, 0.15) calc(50% - 0.5px),
+      rgba(102, 126, 234, 0.15) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px),
+      transparent 100%
+    ),
+    // Grid lines - vertical (thicker, deeper color - 2px thick)
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(80px - 1px),
+      rgba(102, 126, 234, 0.5) calc(80px - 1px),
+      rgba(102, 126, 234, 0.5) calc(80px + 1px),
+      transparent calc(80px + 1px),
+      transparent 80px
+    ),
+    // Grid lines - horizontal (thicker, deeper color - 2px thick)
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent calc(80px - 1px),
+      rgba(102, 126, 234, 0.5) calc(80px - 1px),
+      rgba(102, 126, 234, 0.5) calc(80px + 1px),
+      transparent calc(80px + 1px),
+      transparent 80px
+    ),
+    // Grid nodes - smaller balls at intersection points (positioned at 0,0 of each square)
+    radial-gradient(circle, rgba(102, 126, 234, 0.7) 2px, transparent 2.5px);
+    
+  background-size: 
+    80px 80px,
+    80px 80px,
+    80px 100%,
+    100% 80px,
+    80px 80px;
+    
+  background-position: 
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
 }
 
 // Screen reader only

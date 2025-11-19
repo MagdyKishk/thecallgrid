@@ -154,6 +154,41 @@
     });
   });
 
+  // Update grid background height to match document height
+  const gridBackground = document.getElementById('grid-background');
+  if (gridBackground) {
+    const updateGridHeight = () => {
+      const documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+      gridBackground.style.height = documentHeight + 'px';
+    };
+
+    // Update on load
+    updateGridHeight();
+
+    // Update on resize
+    window.addEventListener('resize', updateGridHeight);
+
+    // Update when content changes (images load, etc.)
+    window.addEventListener('load', updateGridHeight);
+
+    // Observe body for content changes
+    const observer = new MutationObserver(() => {
+      updateGridHeight();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+  }
 
 })();
 

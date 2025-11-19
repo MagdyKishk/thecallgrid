@@ -100,16 +100,6 @@
   }
 }
 
-// Mouse Glow
-.mouse-glow {
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999 !important;
-  mix-blend-mode: normal;
-  filter: blur(2px);
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
 // Scroll to Top Button
 .scroll-to-top {
   position: fixed;

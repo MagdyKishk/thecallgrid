@@ -35,7 +35,9 @@ block content
                   maxlength="100"
                   placeholder="John Doe"
                   aria-required="true"
+                  aria-invalid="false"
                 )
+                .form-error#name-error(role="alert" aria-live="polite")
               
               .form-group
                 label.form-label(for="email") Email Address *
@@ -46,7 +48,9 @@ block content
                   required
                   placeholder="john@example.com"
                   aria-required="true"
+                  aria-invalid="false"
                 )
+                .form-error#email-error(role="alert" aria-live="polite")
             
             .form-row
               .form-group
@@ -56,7 +60,10 @@ block content
                   id="phone"
                   name="phone"
                   placeholder="+1 (555) 123-4567"
+                  maxlength="20"
+                  aria-invalid="false"
                 )
+                .form-error#phone-error(role="alert" aria-live="polite")
               
               .form-group
                 label.form-label(for="company") Company Name
@@ -65,7 +72,10 @@ block content
                   id="company"
                   name="company"
                   placeholder="Your Company"
+                  maxlength="100"
+                  aria-invalid="false"
                 )
+                .form-error#company-error(role="alert" aria-live="polite")
             
             .form-group
               label.form-label(for="industry") Industry *
@@ -74,6 +84,7 @@ block content
                 name="industry"
                 required
                 aria-required="true"
+                aria-invalid="false"
               )
                 option(value="" disabled selected) Select your industry
                 option(value="Real Estate") Real Estate Wholesaling
@@ -81,6 +92,7 @@ block content
                 option(value="Roofing") Roofing Services
                 option(value="Home Renovation") Home Renovation
                 option(value="Other") Other
+              .form-error#industry-error(role="alert" aria-live="polite")
             
             .form-group
               label.form-label(for="subject") Subject
@@ -90,7 +102,9 @@ block content
                 name="subject"
                 placeholder="How can we help?"
                 maxlength="200"
+                aria-invalid="false"
               )
+              .form-error#subject-error(role="alert" aria-live="polite")
             
             .form-group
               label.form-label(for="message") Message *
@@ -103,7 +117,12 @@ block content
                 maxlength="5000"
                 placeholder="Tell us about your lead generation needs..."
                 aria-required="true"
+                aria-invalid="false"
               )
+              .form-error#message-error(role="alert" aria-live="polite")
+              .form-char-count
+                span#message-count 0
+                |  / 5000 characters
             
             //- TODO: Add reCAPTCHA v3 in production
             //- .form-group
@@ -159,62 +178,250 @@ block content
                   p.info-text Monday - Friday: 8:00 AM - 6:00 PM
 
 block scripts
-  //- Contact form handling
+  //- Contact form handling with validation
   script.
-    // Contact form submission
-    const contactForm = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    
-    contactForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    (function() {
+      'use strict';
       
-      // Disable submit button
-      submitBtn.disabled = true;
-      btnText.classList.add('hidden');
-      btnLoading.classList.remove('hidden');
-      formMessage.classList.add('hidden');
+      const contactForm = document.getElementById('contact-form');
+      const formMessage = document.getElementById('form-message');
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
       
-      // Collect form data
-      const formData = new FormData(contactForm);
-      const data = Object.fromEntries(formData.entries());
+      // Validation rules
+      const validators = {
+        name: {
+          validate: (value) => {
+            const trimmed = value.trim();
+            if (!trimmed) return 'Full name is required';
+            if (trimmed.length < 2) return 'Name must be at least 2 characters';
+            if (trimmed.length > 100) return 'Name must be less than 100 characters';
+            if (!/^[a-zA-Z\s'-]+$/.test(trimmed)) return 'Name can only contain letters, spaces, hyphens, and apostrophes';
+            return null;
+          }
+        },
+        email: {
+          validate: (value) => {
+            const trimmed = value.trim();
+            if (!trimmed) return 'Email address is required';
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(trimmed)) return 'Please enter a valid email address';
+            return null;
+          }
+        },
+        phone: {
+          validate: (value) => {
+            if (!value) return null; // Optional field
+            const trimmed = value.trim();
+            if (trimmed.length > 20) return 'Phone number is too long';
+            // Basic phone validation - allows various formats
+            const phoneRegex = /^[\d\s()+\-\.]+$/;
+            if (!phoneRegex.test(trimmed)) return 'Please enter a valid phone number';
+            return null;
+          }
+        },
+        company: {
+          validate: (value) => {
+            if (!value) return null; // Optional field
+            const trimmed = value.trim();
+            if (trimmed.length > 100) return 'Company name is too long';
+            return null;
+          }
+        },
+        industry: {
+          validate: (value) => {
+            if (!value || value === '') return 'Please select an industry';
+            return null;
+          }
+        },
+        subject: {
+          validate: (value) => {
+            if (!value) return null; // Optional field
+            const trimmed = value.trim();
+            if (trimmed.length > 200) return 'Subject is too long (max 200 characters)';
+            return null;
+          }
+        },
+        message: {
+          validate: (value) => {
+            const trimmed = value.trim();
+            if (!trimmed) return 'Message is required';
+            if (trimmed.length < 10) return 'Message must be at least 10 characters';
+            if (trimmed.length > 5000) return 'Message must be less than 5000 characters';
+            return null;
+          }
+        }
+      };
       
-      try {
-        const response = await fetch('/api/contact/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
+      // Show error for a field
+      function showError(fieldName, errorMessage) {
+        const field = document.getElementById(fieldName);
+        const errorElement = document.getElementById(fieldName + '-error');
+        
+        if (field && errorElement) {
+          field.setAttribute('aria-invalid', 'true');
+          field.classList.add('error');
+          errorElement.textContent = errorMessage;
+          errorElement.classList.add('visible');
+        }
+      }
+      
+      // Clear error for a field
+      function clearError(fieldName) {
+        const field = document.getElementById(fieldName);
+        const errorElement = document.getElementById(fieldName + '-error');
+        
+        if (field && errorElement) {
+          field.setAttribute('aria-invalid', 'false');
+          field.classList.remove('error');
+          errorElement.textContent = '';
+          errorElement.classList.remove('visible');
+        }
+      }
+      
+      // Validate a single field
+      function validateField(fieldName, value) {
+        const validator = validators[fieldName];
+        if (!validator) return true;
+        
+        const error = validator.validate(value);
+        if (error) {
+          showError(fieldName, error);
+          return false;
+        } else {
+          clearError(fieldName);
+          return true;
+        }
+      }
+      
+      // Validate entire form
+      function validateForm() {
+        let isValid = true;
+        const formData = new FormData(contactForm);
+        
+        Object.keys(validators).forEach(fieldName => {
+          const value = formData.get(fieldName) || '';
+          if (!validateField(fieldName, value)) {
+            isValid = false;
+          }
         });
         
-        const result = await response.json();
-        
-        if (result.success) {
-          // Success message
-          formMessage.textContent = result.message;
-          formMessage.className = 'form-message success';
-          formMessage.classList.remove('hidden');
+        return isValid;
+      }
+      
+      // Add real-time validation on blur
+      Object.keys(validators).forEach(fieldName => {
+        const field = document.getElementById(fieldName);
+        if (field) {
+          // Validate on blur
+          field.addEventListener('blur', function() {
+            validateField(fieldName, this.value);
+          });
           
-          // Reset form
-          contactForm.reset();
-        } else {
-          // Error message
-          const errorMsg = result.errors ? result.errors.join(', ') : result.error;
-          formMessage.textContent = errorMsg;
+          // Clear error on input (for better UX)
+          field.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+              validateField(fieldName, this.value);
+            }
+          });
+        }
+      });
+      
+      // Character counter for message field
+      const messageField = document.getElementById('message');
+      const messageCount = document.getElementById('message-count');
+      if (messageField && messageCount) {
+        messageField.addEventListener('input', function() {
+          const length = this.value.length;
+          messageCount.textContent = length;
+          
+          if (length > 5000) {
+            messageCount.parentElement.classList.add('error');
+          } else {
+            messageCount.parentElement.classList.remove('error');
+          }
+        });
+      }
+      
+      // Form submission
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Clear previous messages
+        formMessage.classList.add('hidden');
+        
+        // Validate form before submission
+        if (!validateForm()) {
+          formMessage.textContent = 'Please correct the errors in the form before submitting.';
           formMessage.className = 'form-message error';
           formMessage.classList.remove('hidden');
+          
+          // Focus on first error field
+          const firstError = contactForm.querySelector('.form-input.error, .form-select.error, .form-textarea.error');
+          if (firstError) {
+            firstError.focus();
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          return;
         }
-      } catch (error) {
-        formMessage.textContent = 'An error occurred. Please try again or call us directly.';
-        formMessage.className = 'form-message error';
-        formMessage.classList.remove('hidden');
-      } finally {
-        // Re-enable submit button
-        submitBtn.disabled = false;
-        btnText.classList.remove('hidden');
-        btnLoading.classList.add('hidden');
-      }
-    });
+        
+        // Disable submit button
+        submitBtn.disabled = true;
+        btnText.classList.add('hidden');
+        btnLoading.classList.remove('hidden');
+        
+        // Collect form data
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData.entries());
+        
+        try {
+          const response = await fetch('/api/contact/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // Success message
+            formMessage.textContent = result.message;
+            formMessage.className = 'form-message success';
+            formMessage.classList.remove('hidden');
+            
+            // Reset form and clear all errors
+            contactForm.reset();
+            Object.keys(validators).forEach(fieldName => clearError(fieldName));
+            if (messageCount) messageCount.textContent = '0';
+            
+            // Scroll to success message
+            formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            // Error message from server
+            const errorMsg = result.errors ? result.errors.join(', ') : result.error;
+            formMessage.textContent = errorMsg;
+            formMessage.className = 'form-message error';
+            formMessage.classList.remove('hidden');
+            
+            // If server returns field-specific errors, show them
+            if (result.fieldErrors) {
+              Object.keys(result.fieldErrors).forEach(fieldName => {
+                showError(fieldName, result.fieldErrors[fieldName]);
+              });
+            }
+          }
+        } catch (error) {
+          formMessage.textContent = 'An error occurred. Please try again or call us directly.';
+          formMessage.className = 'form-message error';
+          formMessage.classList.remove('hidden');
+        } finally {
+          // Re-enable submit button
+          submitBtn.disabled = false;
+          btnText.classList.remove('hidden');
+          btnLoading.classList.add('hidden');
+        }
+      });
+    })();
