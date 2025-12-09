@@ -6,14 +6,16 @@
 .hero {
   position: relative;
   min-height: calc(100vh - $header-height);
-  height: calc(100vh - $header-height);
   @include flex-center;
   overflow: hidden;
   background: transparent;
   padding: $spacing-lg 0;
   
   @include mobile {
+    min-height: calc(100vh - $header-height);
     padding: $spacing-md 0;
+    height: auto;
+    max-height: none;
   }
 }
 
@@ -263,6 +265,10 @@
   background: $color-bg-white-gradient;
   border-top-left-radius: 600px;
   border-top-right-radius: 600px;
+  
+  @include mobile {
+    background: $color-bg-white-gradient-mobile;
+  }
 }
 
 .industry-showcase {

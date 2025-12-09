@@ -8,6 +8,8 @@
   padding: 0 $spacing-md;
   position: relative;
   z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
   
   @include mobile {
     padding: 0 $spacing-sm;

@@ -1,13 +1,17 @@
 //- Site Header
 //- Responsive navigation with logo, menu, and CTA button
 
+//- Mobile menu overlay (outside header for full page coverage)
+.mobile-menu-overlay(aria-hidden="true")
+
 header.site-header(role="banner")
   .container
     .header-inner
       //- Logo (not lazy-loaded for SEO and branding)
       .logo
         a(href="/" aria-label="TheCallGrid Home")
-          img(src="/assets/logo.svg" alt="TheCallGrid Logo" width="200" height="50")
+          img(src="/assets/logo.svg" alt="TheCallGrid Logo" height="60")
+          p TheCallGrid
       
       //- Mobile menu toggle
       button.mobile-menu-toggle(

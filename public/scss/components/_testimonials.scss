@@ -43,6 +43,7 @@
   @include mobile {
     min-height: auto;
     padding: 3rem 0;
+    background: $color-bg-white-gradient-mobile;
     
     .section-header {
       margin-bottom: 2rem;
@@ -57,6 +58,14 @@
 .testimonials-swiper-wrapper {
   position: relative;
   padding: $spacing-xl 0;
+  
+  @include mobile {
+    padding: $spacing-lg 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: $spacing-md 0;
+  }
 }
 
 .testimonials-swiper {
@@ -64,7 +73,11 @@
   overflow: visible !important;
   
   @include mobile {
-    padding: 0 35px !important;
+    padding: 0 20px !important;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0 15px !important;
   }
 }
 
@@ -87,7 +100,16 @@
   }
   
   @include mobile {
-    padding: $spacing-lg;
+    padding: $spacing-md;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    padding: $spacing-sm;
+    border-radius: $radius-md;
   }
 }
 
@@ -96,6 +118,11 @@
   border-color: $color-primary;
   transform: scale(1.02);
   transition: all $transition-base;
+  
+  @include mobile {
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.2), 0 2px 8px rgba(102, 126, 234, 0.15);
+  }
 }
 
 .testimonial-rating {
@@ -107,6 +134,20 @@
     color: #FFD700;
     font-size: 1.25rem;
     filter: drop-shadow(0 1px 2px rgba(255, 193, 7, 0.3));
+  }
+  
+  @include mobile {
+    margin-bottom: $spacing-sm;
+    
+    i {
+      font-size: 1.125rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    i {
+      font-size: 1rem;
+    }
   }
 }
 
@@ -125,6 +166,20 @@
     margin: 0;
     font-style: italic;
   }
+  
+  @include mobile {
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    p {
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+  }
 }
 
 .testimonial-author {
@@ -142,24 +197,44 @@
   font-weight: 700;
   font-size: 1.0625rem;
   color: $color-text;
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9375rem;
+  }
 }
 
 .author-role {
   color: $color-text-muted;
   font-size: 0.9375rem;
   font-weight: 500;
+  
+  @include mobile {
+    font-size: 0.875rem;
+  }
 }
 
 .author-company {
   color: $color-primary;
   font-size: 0.9375rem;
   font-weight: 600;
+  
+  @include mobile {
+    font-size: 0.875rem;
+  }
 }
 
 .author-industry {
   color: $color-text-muted;
   font-size: 0.875rem;
   font-style: italic;
+  
+  @include mobile {
+    font-size: 0.8125rem;
+  }
 }
 
 // Swiper Navigation
@@ -185,21 +260,47 @@
   }
   
   @include mobile {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
+    margin-top: 0;
     
     i {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    width: 28px;
+    height: 28px;
+    
+    i {
+      font-size: 0.6875rem;
     }
   }
 }
 
 .testimonials-swiper .swiper-button-prev {
   left: 0;
+  
+  @include mobile {
+    left: -5px;
+  }
+  
+  @media (max-width: 480px) {
+    left: -8px;
+  }
 }
 
 .testimonials-swiper .swiper-button-next {
   right: 0;
+  
+  @include mobile {
+    right: -5px;
+  }
+  
+  @media (max-width: 480px) {
+    right: -8px;
+  }
 }
 
 // Swiper Pagination
@@ -207,6 +308,14 @@
   position: relative;
   margin-top: $spacing-xl;
   bottom: 0 !important;
+  
+  @include mobile {
+    margin-top: $spacing-lg;
+  }
+  
+  @media (max-width: 480px) {
+    margin-top: $spacing-md;
+  }
 }
 
 .testimonials-swiper .swiper-pagination-bullet {

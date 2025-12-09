@@ -7,9 +7,7 @@ This directory contains image assets for TheCallGrid website.
 ### For Production:
 
 1. **Logo & Branding**
-   - `logo.svg` ✓ (already included)
-   - `favicon.ico` - Website favicon (16x16, 32x32)
-   - `apple-touch-icon.png` - iOS icon (180x180)
+   - `logo.svg` ✓ (branding, favicon, and app icons)
    - `og-image.jpg` - Open Graph image for social sharing (1200x630)
 
 2. **Hero & Landing Page**
